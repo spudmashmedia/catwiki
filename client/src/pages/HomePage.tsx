@@ -5,6 +5,7 @@ import { useGetBreedsQuery, useSearchBreedQuery } from "../app/services/api";
 import Searchbox from "../components/searchbox";
 import { Breed } from "../models/Breed";
 import { Link } from "react-router-dom";
+import KittyCard from "../components/kittycard";
 
 export default function HomePage(props: any) {
   const [searchText, setSearchText] = useState("");
@@ -55,7 +56,7 @@ export default function HomePage(props: any) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {searchResults?.map((item: Breed) => (
             <Link key={item.id} to={`details/${item.id}`}>
-              <div>{item.name}</div>
+              <KittyCard cat={item} />
             </Link>
           ))}
         </div>
