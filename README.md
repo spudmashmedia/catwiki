@@ -1,10 +1,20 @@
-# CatWiki
+# CatWiki by JD@Spudmash Media
+- [CatWiki by JD@Spudmash Media](#catwiki-by-jdspudmash-media)
+  - [Documentation](#documentation)
+  - [Starting the backend](#starting-the-backend)
+  - [Starting the frontend](#starting-the-frontend)
+  - [Running frontend tests](#running-frontend-tests)
+  - [Deploying to Heroku](#deploying-to-heroku)
+  - [Pushing changes to your GitHub repository](#pushing-changes-to-your-github-repository)
 
-This is a basic template to get you started with the CatWiki challenge.
-It contains a frontend and a backend, with some very basic interaction
-between them. Feel free to modify whatever you wish, or to start 
-completely from scratch! :smiley_cat:
+---
 
+## Documentation
+
+- [Build Doc](/docs/BuildDoc.md)
+- [User Stories Doc](/docs/UserStories.md)
+
+---
 ## Starting the backend
 
 To start up the backend Node.js server, run the following command in your
