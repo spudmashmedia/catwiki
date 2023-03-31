@@ -10,12 +10,16 @@ export default function KittyCard({ cat }: { cat: Breed }) {
             🐱 {cat?.name}
           </div>
 
-          <div className="rounded-b-md bg-gradient-to-r from-cyan-500 to-blue-500">
-            <img
-              src={cat?.image?.url}
-              className="object-cover h-48 w-96 rounded-t-lg p-2"
-            />
-          </div>
+          {cat?.image ? (
+            <div className="rounded-b-md bg-gradient-to-r from-cyan-500 to-blue-500">
+              <img
+                src={cat?.image?.url}
+                className="object-cover h-48 w-96 rounded-t-lg p-2"
+              />
+            </div>
+          ) : (
+            <></>
+          )}
           <div className="mt-2 rounded-md p-2 bg-gradient-to-b from-slate-100 to-slate-400 outline outline-1 outline-gray-300 drop-shadow-lg text-stone-900">
             <div className="flex flex-col pl-4 pr-4 pt-2">
               <div className="flex flex-row items-center rounded-md p-2 mb-4 outline outline-1 outline-black text-white bg-slate-700">

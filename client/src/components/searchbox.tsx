@@ -8,12 +8,12 @@ export default function Searchbox({
   clearButtonHandler: any;
 }) {
   return (
-    <div className="flex place-content-center">
+    <div className="flex w-full place-content-center">
       <input
         type="text"
         value={q}
         onChange={textChangeHandler}
-        className="z-1 h-16 pl-4 text-2xl rounded-md outline outlien-black font-bold"
+        className="h-16 pl-4 text-2xl rounded-md outline outlien-black font-bold"
       />
       <button 
         type="button" 
