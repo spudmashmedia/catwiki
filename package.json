@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon server/index.js",
     "test": "jest",
-    "build": "cd client && npm install && npm run build"
+    "build": "cd client && npm install && npm run build",
+    "newman": "newman run tests/integration/CatWikiProxyAPI.postman_collection.json -e tests/integration/env/CatWikiApiProxy_Local.postman_environment.json"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +23,7 @@
     "node": "v17.4.0"
   },
   "devDependencies": {
+    "newman": "^5.3.2",
     "nodemon": "^2.0.22"
   }
 }

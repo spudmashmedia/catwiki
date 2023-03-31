@@ -15,21 +15,22 @@ This is a minimal implementation of the Cat Wiki. Items that will ommited are:
 ## Technical Stack
 
 ### Server
-|item| tech | description|
-|---|---|---|
-|Framework | ExpressJS | will be used to construct our client API to integrate with The Cat API (https://thecatapi.com)|
-|Caching|node-cache| This will cache the heavy calls such as getBreads which will return all the breeds. This will reduce the number of calls to thecatapi.com and speed up the search on the front end|
-|Testing | Jest| could use Jasmine / Mocha, but lets keep it the same as the Front end|
+| item                | tech       | description                                                                                                                                                                        |
+| ------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Framework           | ExpressJS  | will be used to construct our client API to integrate with The Cat API (https://thecatapi.com)                                                                                     |
+| Caching             | node-cache | This will cache the heavy calls such as getBreads which will return all the breeds. This will reduce the number of calls to thecatapi.com and speed up the search on the front end |
+| Unit Testing        | Jest       | could use Jasmine / Mocha, but lets keep it the same as the Front end                                                                                                              |
+| Integration Testing | Newman     | node module that can execute Postman collections locally                                                                                                                           |
 
 ### Client
-|item| tech | description|
-|---|---|---|
-| Client Framework | ReactJS | will be used to be Single Page App (SPA)|
-|Routing| react-router| use to navigate between pages components|
-|State Management| Redux Toolkit (RTK) | will be using this as state management + the Query API for retrieving data from the Client API (using this over Axios as it is an all in one system that integrates with the state management)|
-|Styling | TailwindCSS| Utility Library to assist with quick prototyping and eliminates the need to write custom styles - the long class stacking may look jarring but it's quite nice to work with|
-| Testing | Jest | unit testing framework for front end|
-| UI Doc & Testing | Storybook | Great Component Library documentation tool + excellent test harness for component building & viewing any Accessibility issues (https://storybook.js.org/addons/@storybook/addon-a11y)|
+| item             | tech                | description                                                                                                                                                                                    |
+| ---------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Client Framework | ReactJS             | will be used to be Single Page App (SPA)                                                                                                                                                       |
+| Routing          | react-router        | use to navigate between pages components                                                                                                                                                       |
+| State Management | Redux Toolkit (RTK) | will be using this as state management + the Query API for retrieving data from the Client API (using this over Axios as it is an all in one system that integrates with the state management) |
+| Styling          | TailwindCSS         | Utility Library to assist with quick prototyping and eliminates the need to write custom styles - the long class stacking may look jarring but it's quite nice to work with                    |
+| Testing          | Jest                | unit testing framework for front end                                                                                                                                                           |
+| UI Doc & Testing | Storybook           | Great Component Library documentation tool + excellent test harness for component building & viewing any Accessibility issues (https://storybook.js.org/addons/@storybook/addon-a11y)          |
 
 ---
 
