@@ -18,6 +18,7 @@ This is a minimal implementation of the Cat Wiki. Items that will ommited are:
 |item| tech | description|
 |---|---|---|
 |Framework | ExpressJS | will be used to construct our client API to integrate with The Cat API (https://thecatapi.com)|
+|Caching|node-cache| This will cache the heavy calls such as getBreads which will return all the breeds. This will reduce the number of calls to thecatapi.com and speed up the search on the front end|
 |Testing | Jest| could use Jasmine / Mocha, but lets keep it the same as the Front end|
 
 ### Client
