@@ -2,6 +2,7 @@
 - [CatWiki by JD@Spudmash Media](#catwiki-by-jdspudmash-media)
   - [Documentation](#documentation)
   - [Starting the backend](#starting-the-backend)
+    - [Pre-work](#pre-work)
   - [Starting the frontend](#starting-the-frontend)
   - [Running frontend tests](#running-frontend-tests)
   - [Deploying to Heroku](#deploying-to-heroku)
@@ -16,6 +17,21 @@
 
 ---
 ## Starting the backend
+
+### Pre-work
+You will need to add a .env file in the root of the directory (use the .env_dev file as a template)
+```
+API_HOST="https://api.thecatapi.com"
+API_KEY="DEMO-API-KEY"
+CACHE_TTL=3600
+```
+
+| key       | value                     | description                                                                                                                     |
+| --------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| API_HOST  | https://api.thecatapi.com | this is The Cat API hostname                                                                                                    |
+| API_KEY   | default: DEMO-API-KEY     | replace this with you own key. You an get one from here https://thecatapi.com/signup                                            |
+| CACHE_TTL | default:3600 seconds      | node-cache is used for in-memory caching. On first Home Page load, it will be slow, but every subsequent action will be quicker |
+
 
 To start up the backend Node.js server, run the following command in your
 terminal (note: you'll need to have Node v16.x or above installed):
