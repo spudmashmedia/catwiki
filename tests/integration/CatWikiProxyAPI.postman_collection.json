@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "c21c18a0-5089-48ce-a32a-3220a3ec82eb",
+		"name": "CatWikiProxyAPI",
+		"description": "# Cat Wiki API proxy\n\nThis postman collection tests CatWiki Proxy API (repo https://github.com/spudmashmedia/catwiki)\n\nJD @Spudmash Media [ - ] 2023",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get bread",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/breed",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"breed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search bread by name",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/search/breed?q=ab",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"search",
+						"breed"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "ab"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search bread by name exact name",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/search/breed?q=abySSinian",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"search",
+						"breed"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "abySSinian"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get bread by breed_id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/breed/:breed_id",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"breed",
+						":breed_id"
+					],
+					"variable": [
+						{
+							"key": "breed_id",
+							"value": "abys"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get bread by breed_id 2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/breed/:breed_id",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"breed",
+						":breed_id"
+					],
+					"variable": [
+						{
+							"key": "breed_id",
+							"value": "aege"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get images by breed_id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "x-api-key",
+						"value": "DEMO-API-KEY",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/breed/:breed_id/images?limit=2",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"breed",
+						":breed_id",
+						"images"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2"
+						}
+					],
+					"variable": [
+						{
+							"key": "breed_id",
+							"value": "abys"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
