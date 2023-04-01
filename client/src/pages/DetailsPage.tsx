@@ -35,7 +35,7 @@ export default function DetailsPage(props: any) {
         <span className="font-extrabold text-2xl pr-2">←</span>
         <span className="font-extrabold text-2xl">BACK</span>
       </button>
-      <div className="mt-4">
+      <div className="mt-4 h-80">
         {getImageQueryHook.isLoading ? (
           <>Loading...</>
         ) : (
@@ -65,7 +65,7 @@ export default function DetailsPage(props: any) {
               Keyboard,
               EffectCoverflow,
             ]}
-            className="h-80"
+            
           >
             {getImageQueryHook.data.map((x: any) => (
               <SwiperSlide key={x.id} className="rounded-md drop-shadow-md">
@@ -75,7 +75,7 @@ export default function DetailsPage(props: any) {
           </Swiper>
         )}
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3">
+      <div className="grid grid-cols-1 lg:grid-cols-3">
         <div className="flex place-content-end">
           {getBreedQueryHook.isLoading ? (
             <>Loading...</>
@@ -83,7 +83,7 @@ export default function DetailsPage(props: any) {
             <KittyCard cat={getBreedQueryHook.data} />
           )}
         </div>
-        <div className="col-span-2 h-96">
+        <div className="container col-span-2">
           {getBreedQueryHook.isLoading ? (
             <>Loading...</>
           ) : (

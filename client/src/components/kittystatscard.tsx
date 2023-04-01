@@ -5,9 +5,9 @@ export default function KittyStatsCard({ cat }: { cat: Breed }) {
   return (
     <>
       <div key={cat.id} className="p-2">
-        <div className="p-2 outline outline-1 outline-yellow-100 bg-yellow-300 rounded-xl drop-shadow-md">
+        <div className=" p-2 outline outline-1 outline-yellow-100 bg-yellow-300 rounded-xl drop-shadow-md">
           <div className="rounded-md p-2 bg-gradient-to-b from-slate-100 to-slate-400 outline outline-1 outline-gray-300 drop-shadow-lg text-stone-900 h-80">
-            <div className="grid grid-cols-3 p-4 outline outline-1 rounded-md">
+            <div className="grid grid-cols-1 p-4 outline outline-1 rounded-md sm:grid-cols-3 md:grid-cols-3 ">
               <div className="flex flex-1 w-40 justify-between mr-4">
                 <span className="font-bold">Life Span</span>
                 <span>{cat.life_span}yrs</span>
@@ -45,7 +45,7 @@ export default function KittyStatsCard({ cat }: { cat: Breed }) {
                 <span>{cat.stranger_friendly}</span>
               </div>
             </div>
-            <div className="col-span-3 mt-2 p-4 font-semibold text-md outline outline-1 rounded-md">
+            <div className="mt-2 p-4 outline outline-1 rounded-md">
               <div className="mb-2 font-extrabold">{cat.temperament}</div>
               <div>"{cat.description}"</div>
             </div>
