@@ -8,6 +8,20 @@
 	"item": [
 		{
 			"name": "get bread",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"when code is aege result should be Aegean\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.name).to.eql('Aegean');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [
@@ -18,13 +32,20 @@
 					}
 				],
 				"url": {
-					"raw": "{{host}}/api/breed",
+					"raw": "{{host}}/api/breed/:breed_id",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"breed"
+						"breed",
+						":breed_id"
+					],
+					"variable": [
+						{
+							"key": "breed_id",
+							"value": "aege"
+						}
 					]
 				}
 			},
@@ -32,6 +53,20 @@
 		},
 		{
 			"name": "search bread by name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"when query is ab result should be Abyssinian\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].name).to.eql('Abyssinian');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [
@@ -63,6 +98,20 @@
 		},
 		{
 			"name": "search bread by name exact name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"when query is abySSinian result should be Abyssinian\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].name).to.eql('Abyssinian');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [
@@ -94,6 +143,21 @@
 		},
 		{
 			"name": "get bread by breed_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"when query is ab expecting 2 results\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].id).to.eql('abys');",
+							"    pm.expect(jsonData[1].id).to.eql('amau');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [
@@ -104,19 +168,19 @@
 					}
 				],
 				"url": {
-					"raw": "{{host}}/api/breed/:breed_id",
+					"raw": "{{host}}/api/search/breed?q=ab",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"breed",
-						":breed_id"
+						"search",
+						"breed"
 					],
-					"variable": [
+					"query": [
 						{
-							"key": "breed_id",
-							"value": "abys"
+							"key": "q",
+							"value": "ab"
 						}
 					]
 				}
@@ -125,6 +189,20 @@
 		},
 		{
 			"name": "get bread by breed_id 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"when code is aege result should be Aegean\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.name).to.eql('Aegean');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [
@@ -156,6 +234,20 @@
 		},
 		{
 			"name": "get images by breed_id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"when id is abys result should be Abyssinian\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].name).to.eql('Abyssinian');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [
@@ -191,6 +283,226 @@
 						{
 							"key": "breed_id",
 							"value": "abys"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Top 10 Searches - should be empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"when report is REPORT_TOP_TEN_SEARCHES and server just started expect no results\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length).to.eql(0);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/stats?report_id=REPORT_TOP_TEN_SEARCHES",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"stats"
+					],
+					"query": [
+						{
+							"key": "report_id",
+							"value": "REPORT_TOP_TEN_SEARCHES"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Log click event for  Top 10 Searches [record 1] - run1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"name\": \"one\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/stats?report_id=REPORT_TOP_TEN_SEARCHES",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"stats"
+					],
+					"query": [
+						{
+							"key": "report_id",
+							"value": "REPORT_TOP_TEN_SEARCHES"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Log click event for  Top 10 Searches [record 1] run2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"name\": \"one\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/stats?report_id=REPORT_TOP_TEN_SEARCHES",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"stats"
+					],
+					"query": [
+						{
+							"key": "report_id",
+							"value": "REPORT_TOP_TEN_SEARCHES"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Log click event for  Top 10 Searches [record 2]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2,\n    \"name\": \"two\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/stats?report_id=REPORT_TOP_TEN_SEARCHES",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"stats"
+					],
+					"query": [
+						{
+							"key": "report_id",
+							"value": "REPORT_TOP_TEN_SEARCHES"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Top 10 Searches  - should contain 2 records",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Should have 2 records\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length).to.eql(2);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/stats?report_id=REPORT_TOP_TEN_SEARCHES",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"stats"
+					],
+					"query": [
+						{
+							"key": "report_id",
+							"value": "REPORT_TOP_TEN_SEARCHES"
 						}
 					]
 				}

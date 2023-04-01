@@ -19,7 +19,7 @@ class StatisticsApi {
     async getReport(report_id) {
         if (!report_id || report_id == '') { return {} }
 
-        let report = {};
+        let report = [];
 
         switch (report_id) {
             case this.REPORT_TOP_TEN_SEARCHES:
