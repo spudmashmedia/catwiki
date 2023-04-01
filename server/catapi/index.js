@@ -38,7 +38,7 @@ class CatApi {
                         this.HTTP_PARAMS)
 
             data = response?.data;
-            if(this.APP_CACHE){
+            if (this.APP_CACHE) {
                 this.APP_CACHE.set(this.CACHE_KEY_ALL_BREEDS, data);
             }
         } catch (error) {
@@ -63,7 +63,7 @@ class CatApi {
 
             data = response?.data;
 
-            if(this.APP_CACHE){
+            if (this.APP_CACHE) {
                 this.APP_CACHE.set(key, data);
             }
         } catch (error) {
@@ -77,10 +77,10 @@ class CatApi {
 
         let data = {};
         try {
-            if(this.APP_CACHE && this.APP_CACHE.has(key)){
+            if (this.APP_CACHE && this.APP_CACHE.has(key)) {
                 return this.APP_CACHE.get(key);
             }
-      
+
             const response =
                 await axios
                     .get(`${this.API_HOST}/v1/images/search?breed_ids=${breedId}&limit=${limit}`,
@@ -95,8 +95,8 @@ class CatApi {
                             name: breed.breeds[0].name,
                             url: breed.url
                         }));
-            
-            if(this.APP_CACHE){
+
+            if (this.APP_CACHE) {
                 this.APP_CACHE.set(key, data);
             }
         } catch (error) {
@@ -107,7 +107,7 @@ class CatApi {
     }
 
     async searchBreedByName(query) {
-        if(!query || query == '') {
+        if (!query || query == '') {
             return [];
         }
 

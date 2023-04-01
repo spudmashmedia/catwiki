@@ -6,6 +6,8 @@
 require('dotenv').config();
 const path = require('path');
 const express = require("express");
+const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
 const cors = require("cors");
 const nodecache = require('node-cache');
 const bunyan = require('bunyan');
@@ -19,12 +21,13 @@ const API_KEY = process.env.API_KEY || 'DEMO-API-KEY';
 const CACHE_TTL = process.env.CACHE_TTL || 3600
 
 
-var logger = bunyan.createLogger({ name: APP_NAME, level: LOG_LEVEL });
+const logger = bunyan.createLogger({ name: APP_NAME, level: LOG_LEVEL });
 
 // This should make the site run a bit faster
 const cache = new nodecache({ stdTTL: CACHE_TTL });
 
 const catapi = require('./catapi')(API_HOST, API_KEY, cache);
+const statisticsapi = require('./statisticsapi')(cache, logger);
 const app = express();
 
 // Set CORS Whitelist
@@ -99,6 +102,30 @@ app.get("/api/search/breed", async (req, res, next) => {
   }
 })
 
+app.get('/api/stats', async (req, res, next) => {
+  logger.info(`GET /api/stats?report_id"${req?.query?.report ?? ""}"`);
+
+  try {
+    const response = await statisticsapi.getReport(req?.query?.report_id);
+    res.json(response);
+  } catch (error) {
+    logger.error(error);
+    next(error);
+  }
+})
+
+app.post('/api/stats', jsonParser, async (req, res, next) => {
+  logger.info(`POST /api/stats?report_id="${req?.query?.report_id ?? ""}\n Body: ${JSON.stringify(req?.body)}`);
+
+  try {
+    let response = await statisticsapi.setReport(req?.query?.report_id, req?.body)
+    if (response) { res.sendStatus(200); }
+    else { res.sendStatus(422) } // failed operation
+  } catch (error) {
+    logger.error(error);
+    next(error);
+  }
+})
 
 
 // // All other GET requests not handled before will return our React app
