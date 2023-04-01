@@ -4,7 +4,7 @@ import { BreedStatRequest, BreedStatResponse } from '../../models/BreedStat';
 export const api = createApi({
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({
-        baseUrl: process.env.SERVER_HOST,
+        baseUrl: process.env.REACT_APP_SERVER_HOST,
         prepareHeaders: (headers, { getState }) => {
             headers.set('Content-Type', 'application/json');
             return headers;
