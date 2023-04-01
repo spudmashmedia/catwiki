@@ -21,6 +21,7 @@ This is a minimal implementation of the Cat Wiki. Items that will ommited are:
 | Caching             | node-cache | This will cache the heavy calls such as getBreads which will return all the breeds. This will reduce the number of calls to thecatapi.com and speed up the search on the front end |
 | Unit Testing        | Jest       | could use Jasmine / Mocha, but lets keep it the same as the Front end                                                                                                              |
 | Integration Testing | Newman     | node module that can execute Postman collections locally                                                                                                                           |
+|Logging|Bunyan| will provide cleaner console logs|
 
 ### Client
 | item             | tech                | description                                                                                                                                                                                    |
