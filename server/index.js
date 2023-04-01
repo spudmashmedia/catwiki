@@ -31,7 +31,7 @@ const statisticsapi = require('./statisticsapi')(cache, logger);
 const app = express();
 
 // Set CORS Whitelist
-const whitelist = ['http://127.0.0.1:3000', 'http://127.0.0.1:3001']
+const whitelist = ['http://127.0.0.1:3000', 'http://127.0.0.1:3001', 'https://catwiki-jd.herokuapp.com']
 const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {

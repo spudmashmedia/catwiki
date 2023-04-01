@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/index.js | bunyan",
+    "start": "node server/index.js | bunyan",
+    "dev": "nodemon server/index.js | bunyan",
     "test": "jest",
     "build": "cd client && npm install && npm run build",
     "newman": "newman run tests/integration/CatWikiProxyAPI.postman_collection.json -e tests/integration/env/CatWikiApiProxy_Local.postman_environment.json"
