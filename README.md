@@ -28,6 +28,8 @@ CACHE_TTL=3600
 
 | key       | value                     | description                                                                                                                     |
 | --------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| APP_NAME | cat-api| used with Bunyan for identifing the app in the console logs|
+|LOG_LEVEL | info | using info level logging for all interactions. For websites with high traffic, you would switch to error to reduce the log pressure|
 | API_HOST  | https://api.thecatapi.com | this is The Cat API hostname                                                                                                    |
 | API_KEY   | default: DEMO-API-KEY     | replace this with you own key. You an get one from here https://thecatapi.com/signup                                            |
 | CACHE_TTL | default:3600 seconds      | node-cache is used for in-memory caching. On first Home Page load, it will be slow, but every subsequent action will be quicker |
