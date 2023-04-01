@@ -9,6 +9,7 @@
     - [Acceptance Criteria](#acceptance-criteria-2)
   - [US04: As a user, I want to see the 10 most searched for cat breeds on the homepage to help me decide which breed to view.](#us04-as-a-user-i-want-to-see-the-10-most-searched-for-cat-breeds-on-the-homepage-to-help-me-decide-which-breed-to-view)
     - [Acceptance Criteria](#acceptance-criteria-3)
+  - [We will persist the Top 10 Searched Breeds (based on a user clicking the Breed card on the Home page) on the server using in memory cache](#we-will-persist-the-top-10-searched-breeds-based-on-a-user-clicking-the-breed-card-on-the-home-page-on-the-server-using-in-memory-cache)
 
 ---
 
@@ -62,8 +63,10 @@
 ### Acceptance Criteria
 
 - a widget should display a list of the top 10 selected breeds on the homepage
-- for the sake of simplicity for this exercise, the state will be stored client side (NOTE: this should be persisted to a System or Record - NoSQL/RelationalDB)
+- ~~for the sake of simplicity for this exercise, the state will be stored client side (NOTE: this should be persisted to a System or Record - NoSQL/RelationalDB)~~
 
----
+- [1 April]
+ We will persist the Top 10 Searched Breeds (based on a user clicking the Breed card on the Home page) on the server using in memory cache
+ ---
 
 
