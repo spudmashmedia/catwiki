@@ -73,7 +73,29 @@ From the `client` directory, run the following:
 npm test
 ```
 
-This will run the test suite for you.
+This will run the test suite (WIP - still need to backfill) for you.
+
+From the main directory, you can run Jest unit tests for the Express
+Server:
+
+```
+npm test
+```
+
+OR 
+
+Newman (Postman collection) integration tests against the Express server 
+with the following (be sure to have the server running):
+
+```
+npm run newman
+```
+
+The tests can be loaded into Postman with
+https://github.com/spudmashmedia/catwiki/tree/master/tests/integration
+
+
+
 
 ## Deploying to Heroku
 
