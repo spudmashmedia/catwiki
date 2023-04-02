@@ -23,10 +23,10 @@ You will need to add a .env file in the root of the directory (use the .env_dev 
 ```
 APP_NAME="cat-wiki"
 LOG_LEVEL="info"
-SERVER_HOST="http://localhost:3001"
 API_HOST="https://api.thecatapi.com"
 API_KEY="DEMO-API-KEY"
 CACHE_TTL=3600
+REACT_APP_SERVER_HOST="http://localhost:3001"
 ```
 
 | key       | value                     | description                                                                                                                     |
